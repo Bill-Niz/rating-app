@@ -4,9 +4,10 @@ import {Application} from '../application/Models';
 @Injectable()
 export class ApplicationService {
 
+
   applications: Application[] = [
-    new Application('1', 'ConnectMe', 'Description', 'https://www.mozilla.org/media/img/firefox/products/focus/feature-focus-fast.cff8c1bbafc2.png'),
-    new Application('2', 'Crypto Messenger', 'Description', 'http://is3.mzstatic.com/image/thumb/Purple118/v4/5d/15/33/5d15338e-d6bf-be9d-04e6-fc00bcbd9f8f/source/1200x630bb.jpg')
+    new Application('1', 'ConnectMe', 'Description', 4, 'https://www.universetoday.com/wp-content/uploads/2015/12/cleanutlogo.png'),
+    new Application('2', 'Crypto Messenger', 'Description', 3, 'http://images.sftcdn.net/images/t_optimized,f_auto/p/2315ddfa-a48f-11e6-abab-00163ed833e7/2366607054/free-app-lock-privacy-knight-logo.png')
   ];
   constructor() { }
 

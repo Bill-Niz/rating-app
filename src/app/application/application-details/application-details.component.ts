@@ -6,6 +6,7 @@ import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/switchMap';
 import { ApplicationService } from '../../services/application.service';
+import { Application } from '../Models';
 
 @Component({
   selector: 'app-application-details',
@@ -14,17 +15,20 @@ import { ApplicationService } from '../../services/application.service';
 })
 export class ApplicationDetailsComponent implements OnInit {
 
+  application: Application;
+
   constructor(private _route: ActivatedRoute, private _applicationService: ApplicationService) { }
 
   ngOnInit() {
     this._route.params.map(p => p.id)
-    .switchMap(this.getApplicationDetails)
+    .switchMap(this.getApplicationDetails.bind(this))
       .subscribe( app => {
         console.log(app);
+        this.application = app as Application;
       });
   }
 
-  getApplicationDetails(id: string) {
+  getApplicationDetails(id: string): Observable<Application> {
     return Observable.of(this._applicationService.getApplication(id));
   }
 

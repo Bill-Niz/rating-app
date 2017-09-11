@@ -1,13 +1,11 @@
-export class Feedback {
+export class User {
   id: string;
-  note?: string;
-  date: Date;
-  rating: number;
+  name: string;
+  email: string;
 
-  constructor(id: string, rating: number, note?: string) {
+  constructor(id: string, name: string, email: string) {
     this.id = id;
-    this.rating = rating;
-    this.note = note;
-    this.date = new Date();
+    this.name = name;
+    this.email = email;
   }
 }

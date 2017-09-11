@@ -4,8 +4,8 @@
       <div class="title">Applications</div>
     </div>
   </div>
-  <div class="columns" >
-    <div class="column is-4"
+  <div class="columns">
+    <div class="column is-3"
          *ngFor="let application of applicatations">
       <a [routerLink]="['/application/', application.id]">
         <app-application-card [application]="application"></app-application-card>

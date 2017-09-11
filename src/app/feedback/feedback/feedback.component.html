@@ -1,0 +1,24 @@
+
+  <div class="comment">
+    <a class="avatar">
+      <img src="https://api.adorable.io/avatars/130/abott@adorable.png">
+    </a>
+    <div class="content">
+      <a class="author">Stevie Feliciano</a>
+      <div class="metadata">
+        <div class="date">{{timeAgo(feedback.date)}}</div>
+      </div>
+      <div class="rating"><sui-rating  [maximum]="5" [isReadonly]="false"></sui-rating></div>
+      <div class="text">
+        {{feedback.note}}
+      </div>
+
+      <div class="actions">
+        <a class="reply">Reply</a>
+        <a class="reply">5 comments</a>
+      </div>
+      <div class="actions" style="padding-top: 10px">
+        <input class="input" type="text" placeholder="You comment...">
+      </div>
+    </div>
+  </div>

@@ -1,13 +1,16 @@
-export class Feedback {
-  id: string;
-  note?: string;
-  date: Date;
-  rating: number;
+import {User} from '../authentication/Models'
 
-  constructor(id: string, rating: number, note?: string) {
+export class Comment {
+  id: string;
+  text: string;
+  date: Date;
+  notation: number;
+  user: User;
+
+  constructor(id: string, text: string, notation: number) {
     this.id = id;
-    this.rating = rating;
-    this.note = note;
+    this.text = text;
+    this.notation = notation;
     this.date = new Date();
   }
 }
