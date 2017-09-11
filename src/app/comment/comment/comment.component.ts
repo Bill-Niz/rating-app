@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {Comment} from '../Models';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
+  @Input()
+  comment: Comment;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  timeAgo(date: Date){
+    return moment(date).fromNow();
   }
 
 }

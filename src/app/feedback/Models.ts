@@ -1,4 +1,5 @@
 import {User} from '../authentication/Models';
+import {Comment} from '../comment/Models';
 
 export class Feedback {
   id: string;
@@ -6,6 +7,7 @@ export class Feedback {
   date: Date;
   rating: number;
   user: User;
+  comments: Comment[] = [];
 
   constructor(id: string, rating: number, note?: string) {
     this.id = id;

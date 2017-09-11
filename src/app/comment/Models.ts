@@ -1,4 +1,4 @@
-import {User} from '../authentication/Models'
+import {User} from '../authentication/Models';
 
 export class Comment {
   id: string;

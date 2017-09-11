@@ -1,3 +1,16 @@
-<p>
-  comment works!
-</p>
+<div class="comment">
+  <a class="avatar">
+    <img [src]="comment.user.avatar">
+  </a>
+  <div class="content">
+    <span class="author">{{comment.user.name}}</span>
+    <div class="metadata">
+      <span class="date">{{timeAgo(comment.date)}}</span>
+    </div>
+    <div class="text">
+      {{comment.text}}
+    </div>
+    <div class="actions">
+
+    </div>
+  </div>
