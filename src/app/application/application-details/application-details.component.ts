@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/switchMap';
 import { ApplicationService } from '../../services/application.service';
 import { Application } from '../Models';
+import {Feedback} from '../../feedback/Models';
 
 @Component({
   selector: 'app-application-details',
@@ -16,6 +17,7 @@ import { Application } from '../Models';
 export class ApplicationDetailsComponent implements OnInit {
 
   application: Application;
+  myFeedback?: Feedback;
 
   constructor(private _route: ActivatedRoute, private _applicationService: ApplicationService) { }
 

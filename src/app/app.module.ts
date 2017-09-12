@@ -5,6 +5,8 @@ import { SuiRatingModule } from 'ng2-semantic-ui';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule} from '@angular/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppContainerComponent } from './app-container/app-container.component';
@@ -16,6 +18,11 @@ import { CommentListComponent } from './comment/comment-list/comment-list.compon
 import { CommentComponent } from './comment/comment/comment.component';
 import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 import { FeedbackComponent } from './feedback/feedback/feedback.component';
+import { MyFeedbackComponent } from './feedback/my-feedback/my-feedback.component';
+import { MakeFeedbackComponent } from './feedback/make-feedback/make-feedback.component';
+import { HeaderComponent } from './header/header/header.component';
+import { LoginComponent } from './authentication/login/login/login.component';
+import { RegisterComponent } from './authentication/register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,16 +34,22 @@ import { FeedbackComponent } from './feedback/feedback/feedback.component';
     CommentListComponent,
     CommentComponent,
     FeedbackListComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    MyFeedbackComponent,
+    MakeFeedbackComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     SuiModule,
+    FormsModule,
     SuiRatingModule,
     HttpModule,
     BrowserAnimationsModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ApplicationService],
   bootstrap: [AppComponent]

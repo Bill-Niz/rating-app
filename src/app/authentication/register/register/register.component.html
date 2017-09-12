@@ -1,0 +1,73 @@
+<form [formGroup]="registerForm" class="container section">
+  <div class="columns is-vcentered">
+    <div class="column is-5 is-offset-4">
+      <h1 class="title">
+        Register
+      </h1>
+      <div class="box">
+        <label class="label">Username*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('username').invalid &&
+            registerForm.get('username').dirty"
+            type="text"
+            placeholder="John Smith"
+            formControlName="username"
+            required
+          />
+        </p>
+        <label class="label">Picture*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('picture').invalid &&
+            registerForm.get('picture').dirty"
+            type="text"
+            placeholder="https://api.adorable.io/avatars/275/abott@adorable.png"
+            required
+            formControlName="picture"
+          />
+        </p>
+        <label class="label">Email*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('email').invalid &&
+            registerForm.get('email').dirty"
+            type="email"
+            placeholder="john.smith@mail.com"
+            required
+            formControlName="email"
+          />
+        </p>
+        <label class="label">Password*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('password').invalid &&
+            registerForm.get('password').dirty"
+            type="password"
+            placeholder="●●●●●●●"
+            formControlName="password"
+            required
+          />
+        </p>
+        <hr/>
+        <p *ngIf="alreadyExist">
+          User is already exist in database
+        </p>
+        <p class="control">
+          <button
+            class="button is-outlined is-large is-fullwidth"
+            [disabled]="registerForm.invalid"
+            [class.is-danger]="registerForm.invalid"
+            [class.is-info]="registerForm.valid"
+            (click)="submit()"
+          >Register
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</form>

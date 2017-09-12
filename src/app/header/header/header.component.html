@@ -1,0 +1,45 @@
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item" routerLink="/">
+
+     Ratting
+    </a>
+  </div>
+
+  <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+  <div class="nav-right nav-menu">
+    <div class="nav-item" *ngIf="!isAuthenticated()">
+      <div class="field is-grouped">
+        <p class="control">
+          <a
+            class="button"
+            routerLink="/authentication/register">
+            <span>Register</span>
+          </a>
+        </p>
+        <p class="control">
+          <a
+            class="button"
+            routerLink="authentication/login">
+            <span>Login</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="nav-item" *ngIf="isAuthenticated()">
+      <div class="field is-grouped">
+        <p class="control">
+          <span>Welcome, {{getName()}}</span>
+        </p>
+        <p class="control" (click)="logout()">
+          <a class="button is-primary is-outlined">Logout</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</nav>

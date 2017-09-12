@@ -1,9 +1,10 @@
-<div class="tile is-ancestor">
 
-  <div class="tile is-parent">
+<div class="section"><div class="tile is-ancestor section">
+
+  <div class="tile is-parent ">
   </div>
 
-  <div class="tile is-vertical is-7">
+  <div class="tile is-vertical is-6">
     <div class="tile">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary">
@@ -11,12 +12,31 @@
             <img [src]="application?.image " >
           </figure>
           <p class="title">{{application?.name}}</p>
-          <p class="subtitle"> <sui-rating [maximum]="5" [isReadonly]="true"></sui-rating></p>
+          <p class="subtitle"> <sui-rating class="huge" [maximum]="5" [isReadonly]="true"></sui-rating></p>
           <div class="content">
             {{application?.description}}
           </div>
         </article>
       </div>
+    </div>
+
+    <div class="tile is-parent">
+      <article class="tile is-child notification">
+        <div class="content">
+          <p  *ngIf="myFeedback" class="title is-6">My feedback</p>
+          <div class="content">
+
+            <div *ngIf="myFeedback">
+              <app-my-feedback [feedback]="myFeedback"></app-my-feedback>
+            </div>
+
+            <div  *ngIf="!myFeedback" class="is-pulled-right">
+              <app-make-feedback></app-make-feedback>
+            </div>
+
+          </div>
+        </div>
+      </article>
     </div>
 
     <div class="tile is-parent">
@@ -43,5 +63,5 @@
     </article>
   </div>
 </div>
-
+</div>
 
