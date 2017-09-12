@@ -7,7 +7,7 @@
   <div class="columns">
     <div class="column is-3"
          *ngFor="let application of applicatations">
-      <a [routerLink]="['/application/', application.id]">
+      <a [routerLink]="['/application/', application._id]">
         <app-application-card [application]="application"></app-application-card>
       </a>
     </div>

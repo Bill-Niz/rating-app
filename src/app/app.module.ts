@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {SuiModule} from 'ng2-semantic-ui';
 import { SuiRatingModule } from 'ng2-semantic-ui';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -32,8 +33,10 @@ import { FeedbackComponent } from './feedback/feedback/feedback.component';
     BrowserModule,
     SuiModule,
     SuiRatingModule,
+    HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule
+
   ],
   providers: [ApplicationService],
   bootstrap: [AppComponent]

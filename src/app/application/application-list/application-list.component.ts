@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../Models';
-import { ApplicationService } from  '../../services/application.service';
+import { ApplicationService } from '../../services/application.service';
 
 @Component({
   selector: 'app-application-list',
@@ -12,7 +12,9 @@ export class ApplicationListComponent implements OnInit {
   applicatations: Application[];
 
   constructor(private _applicatonList: ApplicationService) {
-    this.applicatations = this._applicatonList.getApplications();
+    this._applicatonList.getApplications().subscribe( data => {
+      this.applicatations = data;
+    });
   }
 
   ngOnInit() {

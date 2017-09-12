@@ -29,7 +29,7 @@ export class ApplicationDetailsComponent implements OnInit {
   }
 
   getApplicationDetails(id: string): Observable<Application> {
-    return Observable.of(this._applicationService.getApplication(id));
+    return this._applicationService.getApplication(id);
   }
 
 }
