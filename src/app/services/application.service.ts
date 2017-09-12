@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Application} from '../application/Models';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AppSettings } from '../AppSettings';

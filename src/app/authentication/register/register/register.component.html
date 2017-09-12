@@ -9,11 +9,10 @@
         <p class="control">
           <input
             class="input"
-            [class.is-danger]="registerForm.get('username').invalid &&
-            registerForm.get('username').dirty"
-            type="text"
+            [class.is-danger]="registerForm.get('name').invalid &&
+            registerForm.get('name').dirty"
             placeholder="John Smith"
-            formControlName="username"
+            formControlName="name"
             required
           />
         </p>
@@ -21,12 +20,11 @@
         <p class="control">
           <input
             class="input"
-            [class.is-danger]="registerForm.get('picture').invalid &&
-            registerForm.get('picture').dirty"
-            type="text"
+            [class.is-danger]="registerForm.get('image').invalid &&
+            registerForm.get('image').dirty"
             placeholder="https://api.adorable.io/avatars/275/abott@adorable.png"
             required
-            formControlName="picture"
+            formControlName="image"
           />
         </p>
         <label class="label">Email*</label>

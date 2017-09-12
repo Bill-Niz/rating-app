@@ -25,7 +25,6 @@ export class ApplicationDetailsComponent implements OnInit {
     this._route.params.map(p => p.id)
     .switchMap(this.getApplicationDetails.bind(this))
       .subscribe( app => {
-        console.log(app);
         this.application = app as Application;
       });
   }

@@ -23,6 +23,9 @@ import { MakeFeedbackComponent } from './feedback/make-feedback/make-feedback.co
 import { HeaderComponent } from './header/header/header.component';
 import { LoginComponent } from './authentication/login/login/login.component';
 import { RegisterComponent } from './authentication/register/register/register.component';
+import {UserService} from './services/user.service';
+import {FeedbackService} from './services/feedback.service';
+import {CommentService} from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,7 @@ import { RegisterComponent } from './authentication/register/register/register.c
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ApplicationService],
+  providers: [ApplicationService, UserService, FeedbackService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
