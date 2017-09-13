@@ -141,7 +141,15 @@ MIT
 MIT
 MIT
 
+@angular/http@4.3.6
+MIT
+MIT
+
 @angular/animations@4.3.6
+MIT
+MIT
+
+ts-md5@1.2.2
 MIT
 MIT
 
