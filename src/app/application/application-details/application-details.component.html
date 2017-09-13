@@ -12,7 +12,7 @@
             <img [src]="application?.image " >
           </figure>
           <p class="title">{{application?.name}}</p>
-          <p class="subtitle"> <sui-rating class="huge" [maximum]="5" [isReadonly]="true"></sui-rating></p>
+          <p class="subtitle r-rating"> <sui-rating class="huge" [ngModel]="application?application.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></p>
           <div class="content">
             {{application?.description}}
           </div>

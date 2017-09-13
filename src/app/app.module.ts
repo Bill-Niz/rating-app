@@ -26,6 +26,7 @@ import { RegisterComponent } from './authentication/register/register/register.c
 import {UserService} from './services/user.service';
 import {FeedbackService} from './services/feedback.service';
 import {CommentService} from './services/comment.service';
+import {AppMessageService} from './services/messaging/app-message.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {CommentService} from './services/comment.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ApplicationService, UserService, FeedbackService, CommentService],
+  providers: [ApplicationService, UserService, FeedbackService, CommentService,AppMessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

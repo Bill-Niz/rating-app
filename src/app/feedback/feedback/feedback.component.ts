@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Feedback} from '../Models';
+import { Feedback } from '../Models';
 import * as moment from 'moment';
 import {trigger, transition, style, animate} from '@angular/animations';
-
+import { AppMessageService} from '../../services/messaging/app-message.service';
+import { CommentService} from '../../services/comment.service';
+import { Comment } from '../../comment/Models';
 
 @Component({
   selector: 'app-feedback',
@@ -23,25 +25,38 @@ export class FeedbackComponent implements OnInit {
 
   @Input()
   feedback: Feedback;
-  state = 'fadeOut';
+  state = false;
+  comments: Comment[];
 
-  constructor() { }
+  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService) { }
 
   ngOnInit() {
   }
 
-  timeAgo(date: Date){
+  timeAgo(date: Date) {
     return moment(date).fromNow();
   }
 
-  fadeIn() {
-    this.state = 'fadeIn';
+  fetchComments() {
+    this.toggle();
+    if (this.state) {
+      this._commentService.get(this.feedback.comments)
+        .subscribe( comments => {
+          this._appMsgService.sendCommentReceive(comments);
+          this.comments = comments;
+        }, error => {
+          console.log(error);
+        });
+
+    }else {
+      this.comments = [];
   }
-  fadeOut() {
-    this.state = 'fadeOut';
-  }
+}
+
   toggle() {
-    this.state === 'fadeOut' ? this.fadeIn() : this.fadeOut();
+    this.state ? this.state = false : this.state = true;
   }
+
+
 
 }

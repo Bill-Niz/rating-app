@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MakeFeedbackComponent implements OnInit {
 
+  rating: Number = 0;
+  note: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sendFeedback(){
+
   }
 
 }

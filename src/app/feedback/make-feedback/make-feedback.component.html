@@ -1,9 +1,9 @@
 <ng-template let-popup #popupTemplate>
   <div class="header">Rating</div>
   <div class="content">
-    <sui-rating class="star massive" (click)="popup.close()"></sui-rating>
-    <input class="input" type="text" placeholder="You comment...">
-    <span suiPopup [popupTemplate]="popupTemplate" popupTrigger="outsideClick"> <a class="button is-primary is-outlined">Send</a></span>
+    <sui-rating  [(ngModel)]="rating" class="star massive"></sui-rating>
+    <input [ngModel]="note"  class="input" type="text" placeholder="You comment...">
+    <span suiPopup [popupTemplate]="popupTemplate" popupTrigger="outsideClick"> <a class="button is-primary is-outlined" (click)="sendFeedback()"  [attr.disabled]="rating?null:true" >Send</a></span>
   </div>
 </ng-template>
 

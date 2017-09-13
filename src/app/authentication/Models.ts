@@ -1,13 +1,16 @@
+export class Token {
+  token: string;
+  expires: string;
+}
+
 export class User {
   id: string;
   name: string;
   email: string;
   avatar: string;
+  token: Token;
 
-  constructor(id: string, name: string, email: string) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
+  constructor() {
     this.avatar = 'https://api.adorable.io/avatars/275/abott@adorable.png';
   }
 }

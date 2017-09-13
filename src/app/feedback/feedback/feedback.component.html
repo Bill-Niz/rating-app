@@ -1,24 +1,24 @@
 
   <div class="comment">
     <a class="avatar">
-      <img [src]="feedback.user.avatar">
+      <img [src]="feedback?.user?.avatar">
     </a>
     <div class="content">
-      <span class="author">{{feedback.user.name}}</span>
+      <span class="author">{{feedback.user?.name}}</span>
       <div class="metadata">
         <div class="date">{{timeAgo(feedback.date)}}</div>
       </div>
-      <div class="rating"><sui-rating  [maximum]="5" [isReadonly]="false"></sui-rating></div>
+      <div class="rating"><sui-rating   [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="false"></sui-rating></div>
       <div class="text">
         {{feedback.note}}
       </div>
 
       <div class="actions">
         <a class="reply">Reply</a>
-        <a class="reply" (click)="toggle()">{{feedback.comments.length}} comments</a>
+        <a class="reply" (click)="fetchComments()">{{feedback.comments.length}} comments</a>
       </div>
-      <div [@revealAnimation]="state">
-        <app-comment-list [comments]="feedback.comments"></app-comment-list>
+      <div *ngIf="state">
+        <app-comment-list [comments]="comments"></app-comment-list>
       </div>
 
       <div class="actions" style="padding-top: 10px">
