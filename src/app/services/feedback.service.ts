@@ -26,9 +26,8 @@ export class FeedbackService {
       .map((res: Response) => res.json());
   }
 
-  get(feedback: Feedback[]) {
-
-    return this._http.get(this._get)
+  get(feedbacks: any) {
+    return this._http.post(this._get, feedbacks.feedbacks)
       .map((res: Response) => res.json());
   }
 

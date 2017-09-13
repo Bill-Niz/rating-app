@@ -28,7 +28,7 @@ export class CommentService {
   }
 
   get(comments: Comment[]) {
-    return this._http.get(this._get)
+    return this._http.post(this._get, comments)
       .map((res: Response) => res.json());
   }
 

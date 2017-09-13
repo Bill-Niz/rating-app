@@ -50,8 +50,8 @@ export class FeedbackComponent implements OnInit {
 
     }else {
       this.comments = [];
+    }
   }
-}
 
   toggle() {
     this.state ? this.state = false : this.state = true;
