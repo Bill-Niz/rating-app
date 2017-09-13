@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {Http, RequestOptions, Headers, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AppSettings } from '../AppSettings';
 import 'rxjs/add/observable/of';
 import {Feedback} from '../feedback/Models';
+import { LocalStore } from '../LocalStore';
 
 
 @Injectable()
@@ -17,11 +18,16 @@ export class FeedbackService {
 
 
   create(appId: string, feedBack: Feedback) {
-    return this._http.post(this._create + appId, feedBack)
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('x-api-key', LocalStore.getApiKey().token);
+    const options = new RequestOptions({headers: headers});
+
+    return this._http.post(this._create + appId, feedBack, options)
       .map((res: Response) => res.json());
   }
 
   get(feedback: Feedback[]) {
+
     return this._http.get(this._get)
       .map((res: Response) => res.json());
   }

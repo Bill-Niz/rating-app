@@ -6,9 +6,9 @@
     <div class="content">
       <span class="author">{{feedback.user?.name}}</span>
       <div class="metadata">
-        <div class="date">{{timeAgo(feedback.date)}}</div>
+        <div class="date">{{timeAgo(feedback?.date)}}</div>
       </div>
-      <div class="rating"><sui-rating   [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="false"></sui-rating></div>
+      <div class="rating"><sui-rating   [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></div>
       <div class="text">
         {{feedback.note}}
       </div>

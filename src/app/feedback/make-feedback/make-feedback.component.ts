@@ -23,7 +23,6 @@ export class MakeFeedbackComponent implements OnInit {
 
 
   public openPopup(popup: IPopup) {
-    console.log(popup);
     this.popUp = popup;
     popup.toggle();
   }
@@ -37,7 +36,6 @@ export class MakeFeedbackComponent implements OnInit {
     feedback.user = LocalStore.getCurrenUser();
     this._feedbackService.create(this.appId, feedback)
       .subscribe(newFeedback => {
-
         this.popUp.close();
       }, error => {
         console.log(error);
