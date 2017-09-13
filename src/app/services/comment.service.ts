@@ -23,7 +23,7 @@ export class CommentService {
     headers.append('x-api-key', LocalStore.getApiKey().token);
     const options = new RequestOptions({headers: headers});
 
-    return this._http.post(this._create + feedbackId, comment)
+    return this._http.post(this._create + feedbackId, comment,options)
       .map((res: Response) => res.json());
   }
 

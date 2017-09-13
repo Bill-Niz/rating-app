@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
 
     this.registerForm = this._fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      avatar: ['https://api.adorable.io/avatars/275/abott@adorable.png', [Validators.required, Validators.maxLength(250), Validators.pattern(/^http/)]],
       email: ['', [Validators.required, Validators.maxLength(100), Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(250)]]
     });

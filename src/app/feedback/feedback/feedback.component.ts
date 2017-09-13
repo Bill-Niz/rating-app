@@ -5,6 +5,7 @@ import {trigger, transition, style, animate} from '@angular/animations';
 import { AppMessageService} from '../../services/messaging/app-message.service';
 import { CommentService} from '../../services/comment.service';
 import { Comment } from '../../comment/Models';
+import {LocalStore} from "../../LocalStore";
 
 @Component({
   selector: 'app-feedback',
@@ -26,6 +27,7 @@ export class FeedbackComponent implements OnInit {
   @Input()
   feedback: Feedback;
   state = false;
+  showInput = false;
   comments: Comment[];
 
   constructor(private _appMsgService: AppMessageService, private _commentService: CommentService) { }
@@ -57,6 +59,8 @@ export class FeedbackComponent implements OnInit {
     this.state ? this.state = false : this.state = true;
   }
 
-
+  toggleInput() {
+    this.showInput ? this.showInput = false : this.showInput = true;
+  }
 
 }

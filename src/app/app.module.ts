@@ -27,6 +27,7 @@ import {UserService} from './services/user.service';
 import {FeedbackService} from './services/feedback.service';
 import {CommentService} from './services/comment.service';
 import {AppMessageService} from './services/messaging/app-message.service';
+import { CommentInputComponent } from './comment/comment-input/comment-input.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {AppMessageService} from './services/messaging/app-message.service';
     MakeFeedbackComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CommentInputComponent
   ],
   imports: [
     BrowserModule,

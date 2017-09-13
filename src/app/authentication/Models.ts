@@ -11,6 +11,6 @@ export class User {
   token: Token;
 
   constructor() {
-    this.avatar = 'https://api.adorable.io/avatars/275/abott@adorable.png';
+    this.avatar = 'https://api.adorable.io/avatars/120/abott@adorable.png';
   }
 }

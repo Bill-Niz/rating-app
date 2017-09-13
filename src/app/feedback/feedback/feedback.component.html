@@ -14,15 +14,15 @@
       </div>
 
       <div class="actions">
-        <a class="reply">Reply</a>
+        <a class="reply" (click)="toggleInput()">Reply</a>
         <a class="reply" (click)="fetchComments()">{{feedback.comments.length}} comments</a>
       </div>
       <div *ngIf="state">
         <app-comment-list [comments]="comments"></app-comment-list>
       </div>
 
-      <div class="actions" style="padding-top: 10px">
-        <input class="input" type="text" placeholder="You comment...">
+      <div class="actions" style="padding-top: 15px" *ngIf="showInput">
+        <app-comment-input [feedbackId]="feedback._id"></app-comment-input>
       </div>
 
     </div>
