@@ -31,7 +31,7 @@
             </div>
 
             <div  *ngIf="!myFeedback" class="is-pulled-right">
-              <app-make-feedback></app-make-feedback>
+              <app-make-feedback [appId]="application?._id"></app-make-feedback>
             </div>
 
           </div>

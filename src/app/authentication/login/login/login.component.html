@@ -1,3 +1,49 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="registerForm" class="container section">
+  <div class="columns is-vcentered">
+    <div class="column is-5 is-offset-4">
+      <h1 class="title">
+        Login
+      </h1>
+      <div class="box">
+        <label class="label">Email*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('email').invalid &&
+            registerForm.get('email').dirty"
+            type="email"
+            placeholder="john.smith@mail.com"
+            required
+            formControlName="email"
+          />
+        </p>
+        <label class="label">Password*</label>
+        <p class="control">
+          <input
+            class="input"
+            [class.is-danger]="registerForm.get('password').invalid &&
+            registerForm.get('password').dirty"
+            type="password"
+            placeholder="●●●●●●●"
+            formControlName="password"
+            required
+          />
+        </p>
+        <hr/>
+        <p *ngIf="error" class="r-error">
+          Bad email or password
+        </p>
+        <p class="control">
+          <button
+            class="button is-outlined is-large is-fullwidth"
+            [disabled]="registerForm.invalid"
+            [class.is-danger]="registerForm.invalid"
+            [class.is-info]="registerForm.valid"
+            (click)="submit()"
+          >Login
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</form>

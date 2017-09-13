@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {LocalStore} from "../../LocalStore";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  private _key = 'cp-public-name';
+
 
   constructor(private router: Router) { }
 
@@ -16,16 +17,16 @@ export class HeaderComponent implements OnInit {
   }
 
   isAuthenticated() {
-    return !!this.getName();
+    return !!this.getConnectedUser();
   }
 
-  getName() {
-    return localStorage.getItem(this._key);
+  getConnectedUser() {
+    return LocalStore.getCurrenUser();
   }
 
   logout() {
-    localStorage.removeItem(this._key);
-    this.router.navigate(['/authentication/login'])
+    LocalStore.logout();
+    this.router.navigate(['/']);
   }
 
 }

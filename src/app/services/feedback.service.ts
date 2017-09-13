@@ -4,13 +4,13 @@ import 'rxjs/add/operator/map';
 import { AppSettings } from '../AppSettings';
 import 'rxjs/add/observable/of';
 import {Feedback} from '../feedback/Models';
-import {Observable} from 'rxjs/Observable';
+
 
 @Injectable()
 export class FeedbackService {
 
 
-  private _create = AppSettings.API_ENDPOINT + '/feedback/application/';
+  private _create = AppSettings.API_ENDPOINT + '/feeback/application/';
   private _get = AppSettings.API_ENDPOINT + '/feedbacks';
 
   constructor(private _http: Http) { }
@@ -21,7 +21,7 @@ export class FeedbackService {
       .map((res: Response) => res.json());
   }
 
-  get(feedback: Feedback[]){
+  get(feedback: Feedback[]) {
     return this._http.get(this._get)
       .map((res: Response) => res.json());
   }

@@ -34,7 +34,7 @@
     <div class="nav-item" *ngIf="isAuthenticated()">
       <div class="field is-grouped">
         <p class="control">
-          <span>Welcome, {{getName()}}</span>
+          <span>Welcome, {{getConnectedUser().name}}</span>
         </p>
         <p class="control" (click)="logout()">
           <a class="button is-primary is-outlined">Logout</a>

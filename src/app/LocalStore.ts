@@ -1,20 +1,41 @@
 import {Token, User} from './authentication/Models';
 
-export class TimeUtils {
+export class LocalStore {
 
-  static storeUser(user: User){
+  static storeUser(user: User) {
+    console.log(user);
     localStorage.setItem('str-name', user.name);
     localStorage.setItem('str-token', user.token.token);
     localStorage.setItem('str-token-expires', user.token.expires);
+    localStorage.setItem('str-avatar', user.avatar);
   }
 
-  static getCurrenUser(){
+  static getCurrenUser() {
     const user = new User();
+    user.name = localStorage.getItem('str-name');
+    user.avatar = localStorage.getItem('str-avatar');
+
+    if (!!user.name) {
+      return user;
+    }else {
+      return null;
+    }
+  }
+
+  static getApiKey() {
     const token = new Token();
-    user.token = token
-    user.name = localStorage.getItem('username');
     token.token = localStorage.getItem('str-token');
     token.expires = localStorage.getItem('str-token-expires');
+
+    return token;
+  }
+
+  static logout() {
+
+    localStorage.removeItem('str-name');
+    localStorage.removeItem('str-token');
+    localStorage.removeItem('str-token-expires');
+    localStorage.removeItem('str-avatar');
   }
 
 }
