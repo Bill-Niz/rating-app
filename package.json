@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "deploy": "ng build --prod --base-href \"https://bill-niz.github.io/rating-app/\" && sudo ngh",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
