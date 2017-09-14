@@ -3,6 +3,7 @@ import {Feedback} from '../Models';
 import * as moment from 'moment';
 
 
+
 @Component({
   selector: 'app-my-feedback',
   templateUrl: './my-feedback.component.html',
@@ -13,10 +14,13 @@ export class MyFeedbackComponent implements OnInit {
   @Input()
   feedback: Feedback;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
+
 
   timeAgo(date: Date) {
     return moment(date).fromNow();

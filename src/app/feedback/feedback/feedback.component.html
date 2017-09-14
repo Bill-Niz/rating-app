@@ -9,13 +9,11 @@
         <div class="date">{{timeAgo(feedback?.date)}}</div>
       </div>
       <div class="rating"><sui-rating   [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></div>
-      <div class="text">
-        {{feedback.note}}
-      </div>
+      <div class="text"> {{feedback.note}} </div>
 
       <div class="actions">
         <a class="reply" (click)="toggleInput()">Reply</a>
-        <a class="reply" (click)="fetchComments()">{{feedback.comments.length}} comments</a>
+        <a class="reply" (click)="fetchComments()">{{feedback?.comments?.length}} comments</a>
       </div>
       <div *ngIf="state">
         <app-comment-list [comments]="comments"></app-comment-list>

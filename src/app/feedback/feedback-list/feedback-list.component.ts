@@ -19,16 +19,25 @@ export class FeedbackListComponent implements OnInit, OnDestroy {
     this.subscription = this._appMsgService.getFeedbacks()
       .switchMap(this.getFeedbacks.bind(this))
       .subscribe( feedbacks => {
-       console.log(feedbacks);
        this.feedbacks = feedbacks as Feedback[];
        this._appMsgService.sendFullFeedBackReceive(this.feedbacks);
       } ,error => {
         console.log(error);
     });
+
+    this._appMsgService.getNewFeedback()
+      .subscribe(newFeedback => {
+        this.pushNewFeedback(newFeedback.feedback);
+      });
   }
 
   getFeedbacks(feedbacks: Feedback[]) {
+
     return this._feedbackService.get(feedbacks);
+  }
+
+  pushNewFeedback(feedback: Feedback) {
+    this.feedbacks.push(feedback);
   }
 
   ngOnInit() {

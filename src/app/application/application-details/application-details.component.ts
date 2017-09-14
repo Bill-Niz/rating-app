@@ -45,7 +45,18 @@ export class ApplicationDetailsComponent implements OnInit {
       }, error => {
         console.log(error);
       });
+
+    this._appMsgService.getNewFeedback()
+      .subscribe(newFeedback => {
+        this.pushNewFeedback(newFeedback.feedback);
+      });
   }
+
+  pushNewFeedback (feedback: Feedback) {
+    this.myFeedback = feedback;
+  }
+
+
 
   getApplicationDetails(id: string): Observable<Application> {
     return this._applicationService.getApplication(id);

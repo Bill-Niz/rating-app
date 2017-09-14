@@ -10,6 +10,9 @@ export class AppMessageService {
   private _commentReceived = new Subject<any>();
   private _fullFeedBackReceived = new Subject<any>();
 
+  private _newCommentReceived = new Subject<any>();
+  private _newFeedbackReceived = new Subject<any>();
+
   constructor() { }
 
   sendFeedBackReceive(feedbacks: Feedback[]) {
@@ -18,6 +21,24 @@ export class AppMessageService {
 
   getFeedbacks(): Observable<any> {
     return this._feedBackReceived.asObservable();
+  }
+
+
+  sendNewFeedBackReceive(feedback: Feedback) {
+    this._newFeedbackReceived.next({  feedback });
+  }
+
+  getNewFeedback(): Observable<any> {
+    return this._newFeedbackReceived.asObservable();
+  }
+
+
+  sendNewCommentReceive(comment: Comment) {
+    this._newCommentReceived.next({  comment });
+  }
+
+  getNewComment(): Observable<any> {
+    return this._newCommentReceived.asObservable();
   }
 
 

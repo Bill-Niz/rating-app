@@ -4,6 +4,7 @@ import { Feedback} from '../Models';
 import { LocalStore } from '../../LocalStore';
 import { IPopup } from 'ng2-semantic-ui';
 import { Router } from '@angular/router';
+import {AppMessageService} from '../../services/messaging/app-message.service';
 
 @Component({
   selector: 'app-make-feedback',
@@ -19,7 +20,7 @@ export class MakeFeedbackComponent implements OnInit {
   note: string;
 
 
-  constructor(private _feedbackService: FeedbackService, private _router: Router) { }
+  constructor(private _feedbackService: FeedbackService, private _router: Router, private _appMsgService: AppMessageService) { }
 
   ngOnInit() {
   }
@@ -43,6 +44,7 @@ export class MakeFeedbackComponent implements OnInit {
     feedback.user = LocalStore.getCurrenUser();
     this._feedbackService.create(this.appId, feedback)
       .subscribe(newFeedback => {
+        this._appMsgService.sendNewFeedBackReceive(newFeedback);
         this.popUp.close();
       }, error => {
         console.log(error);
