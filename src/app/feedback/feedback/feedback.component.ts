@@ -6,6 +6,7 @@ import { AppMessageService} from '../../services/messaging/app-message.service';
 import { CommentService} from '../../services/comment.service';
 import { Comment } from '../../comment/Models';
 import {LocalStore} from '../../LocalStore';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-feedback',
@@ -30,7 +31,7 @@ export class FeedbackComponent implements OnInit {
   showInput = false;
   comments: Comment[];
 
-  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService) { }
+  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -60,7 +61,12 @@ export class FeedbackComponent implements OnInit {
   }
 
   toggleInput() {
-    this.showInput ? this.showInput = false : this.showInput = true;
+
+    if (!!LocalStore.getCurrenUser()) {
+      this.showInput ? this.showInput = false : this.showInput = true;
+    }else {
+      this._router.navigate(['/authentication/login']);
+    }
   }
 
 }

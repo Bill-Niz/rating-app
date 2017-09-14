@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import {Md5} from 'ts-md5/dist/md5';
 import {LocalStore} from '../../../LocalStore';
 import {User} from '../../Models';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-register',

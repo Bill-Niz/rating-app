@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { CommentService } from '../../services/comment.service';
 import {LocalStore} from '../../LocalStore';
 import { Notation } from '../Models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -16,7 +17,7 @@ export class CommentComponent implements OnInit {
   comment: Comment;
   noted: Notation;
 
-  constructor(private _commentService: CommentService) {
+  constructor(private _commentService: CommentService, private _router: Router) {
 
   }
 
@@ -47,6 +48,8 @@ export class CommentComponent implements OnInit {
         }, error => {
           console.log(error);
         });
+    }else {
+      this._router.navigate(['/authentication/login']);
     }
  }
 

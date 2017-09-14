@@ -3,6 +3,7 @@ import { FeedbackService} from '../../services/feedback.service';
 import { Feedback} from '../Models';
 import { LocalStore } from '../../LocalStore';
 import { IPopup } from 'ng2-semantic-ui';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-make-feedback',
@@ -18,14 +19,19 @@ export class MakeFeedbackComponent implements OnInit {
   note: string;
 
 
-  constructor(private _feedbackService: FeedbackService) { }
+  constructor(private _feedbackService: FeedbackService, private _router: Router) { }
 
   ngOnInit() {
   }
 
   public openPopup(popup: IPopup) {
-    this.popUp = popup;
-    popup.toggle();
+
+    if (!!LocalStore.getCurrenUser()) {
+      this.popUp = popup;
+      popup.toggle();
+    }else {
+      this._router.navigate(['/authentication/login']);
+    }
   }
 
   sendFeedback() {
