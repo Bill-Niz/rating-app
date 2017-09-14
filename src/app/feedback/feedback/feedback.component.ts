@@ -49,12 +49,12 @@ export class FeedbackComponent implements OnInit {
   pushNewComment (comment: Comment) {
     console.log(comment);
     this.feedback.comments.push(comment);
-    this.fetchComments();
+    this.fetchComments(!this.state);
 
   }
 
-  fetchComments() {
-    this.toggle();
+  fetchComments(toogle: boolean) {
+    if(toogle) { this.toggle() };
     if (this.state) {
       this._commentService.get(this.feedback.comments)
         .subscribe( comments => {
@@ -71,6 +71,14 @@ export class FeedbackComponent implements OnInit {
 
   toggle() {
     this.state ? this.state = false : this.state = true;
+  }
+
+  open() {
+    this.state = true;
+  }
+
+  close() {
+    this.state = false;
   }
 
   toggleInput() {
