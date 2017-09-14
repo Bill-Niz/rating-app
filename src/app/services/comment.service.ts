@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import { Comment} from '../comment/Models';
 import {LocalStore} from '../LocalStore';
+import {User} from '../authentication/Models';
 
 @Injectable()
 export class CommentService {
@@ -33,12 +34,12 @@ export class CommentService {
   }
 
 
-  addNote(commentId: string, note: number) {
+  addNote(commentId: string, note: number, user: User) {
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('x-api-key', LocalStore.getApiKey().token);
     const options = new RequestOptions({headers: headers});
 
-    return this._http.post(this._getNotation + commentId, {notation: note}, options)
+    return this._http.post(this._getNotation + commentId, {notation: note, user: user}, options)
       .map((res: Response) => res.json());
   }
 

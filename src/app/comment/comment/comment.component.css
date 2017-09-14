@@ -1,0 +1,11 @@
+.r-centent {
+  margin-top: 5px;
+
+}
+.column.vcenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min-content;
+  text-align: center;
+}

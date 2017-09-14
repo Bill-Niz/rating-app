@@ -1,16 +1,28 @@
-<div class="comment">
-  <a class="avatar">
-    <img [src]="comment.user?.avatar">
-  </a>
-  <div class="content">
-    <span class="author">{{comment.user?.name}}</span>
-    <div class="metadata">
-      <span class="date">{{timeAgo(comment.date)}}</span>
-    </div>
-    <div class="text">
-      {{comment.text}}
-    </div>
-    <div class="actions">
+<div class="columns r-centent">
+  <div class="column is-1 vcenter note">
+    <div class=" is-vertical"><a class="button is-success is-outlined" (click)="anotate(1)">+1</a></div>
+  </div>
+  <div class="column is-8 ">
+    <div class=" comment">
+      <a class="avatar">
+        <img [src]="comment.user?.avatar">
+      </a>
+      <div class="content">
+        <span class="author">{{comment.user?.name}}</span>
+        <div class="metadata">
+          <span class="date">{{timeAgo(comment.date)}}</span>
+          <span> <i class="thumbs up icon"></i> {{comment?.notation}} votes</span>
+        </div>
+        <div class="text">
+          {{comment.text}}
+        </div>
+        <div class="actions">
 
+        </div>
+      </div>
     </div>
   </div>
+  <div class="column is-1 vcenter note">
+    <div class=" is-vertical" ><strong><a class="button is-danger is-outlined" (click)="anotate(-1)">-1</a></strong></div>
+  </div>
+</div>

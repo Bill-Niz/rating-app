@@ -4,7 +4,7 @@
       <div class="title">Applications</div>
     </div>
   </div>
-  <div class="columns">
+  <div class="columns is-multiline">
     <div class="column is-3"
          *ngFor="let application of applicatations">
       <a [routerLink]="['/application/', application._id]">

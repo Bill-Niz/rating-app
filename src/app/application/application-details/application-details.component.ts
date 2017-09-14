@@ -36,10 +36,10 @@ export class ApplicationDetailsComponent implements OnInit {
     this._appMsgService.getFullFeedbacks()
       .subscribe( feedbacks => {
         const currUser = LocalStore.getCurrenUser();
-        console.log(feedbacks);
+
         if (!!currUser) {
           const myfeed = feedbacks.feedbacks.filter((feedback) => { return feedback.user._id === currUser._id });
-          if(myfeed.length > 0) { this.myFeedback = myfeed[0]; }
+          if (myfeed.length > 0) { this.myFeedback = myfeed[0]; }
         }
 
       }, error => {
