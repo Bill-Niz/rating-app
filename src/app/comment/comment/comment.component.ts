@@ -3,6 +3,7 @@ import {Comment} from '../Models';
 import * as moment from 'moment';
 import { CommentService } from '../../services/comment.service';
 import {LocalStore} from '../../LocalStore';
+import { Notation } from '../Models';
 
 @Component({
   selector: 'app-comment',
@@ -13,10 +14,24 @@ export class CommentComponent implements OnInit {
 
   @Input()
   comment: Comment;
+  noted: Notation;
 
-  constructor(private _commentService: CommentService) { }
+  constructor(private _commentService: CommentService) {
+
+  }
 
   ngOnInit() {
+    const currUser = LocalStore.getCurrenUser();
+    console.log(this.comment);
+    if (!!currUser && !!this.comment.notations) {
+      console.log(this.comment);
+      const myNote = this.comment.notations.filter((note) => {
+        return note.user._id = currUser._id;
+      });
+      if (myNote.length > 0) { this.noted = myNote[0] as Notation; }
+    }else {
+      this.noted = null;
+    }
   }
 
   timeAgo(date: Date) {
