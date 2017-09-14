@@ -29,15 +29,28 @@ export class FeedbackComponent implements OnInit {
   feedback: Feedback;
   state = false;
   showInput = false;
-  comments: Comment[];
+  comments = [];
 
-  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router) { }
+  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router) {
+
+    this._appMsgService.getNewComment()
+      .subscribe(newComment => {
+        this.pushNewComment(newComment.comment);
+      });
+  }
 
   ngOnInit() {
   }
 
   timeAgo(date: Date) {
     return moment(date).fromNow();
+  }
+
+  pushNewComment (comment: Comment) {
+    console.log(comment);
+    this.feedback.comments.push(comment);
+    this.fetchComments();
+
   }
 
   fetchComments() {

@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {LocalStore} from '../../LocalStore';
 import { CommentService} from '../../services/comment.service';
 import { Comment} from '../Models';
+import {AppMessageService} from '../../services/messaging/app-message.service';
 
 @Component({
   selector: 'app-comment-input',
@@ -16,7 +17,7 @@ export class CommentInputComponent implements OnInit, AfterViewInit {
   private _inputElement: ElementRef;
   text: string;
 
-  constructor(private _commentService: CommentService) { }
+  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService) { }
 
   ngOnInit() {
   }
@@ -33,6 +34,7 @@ export class CommentInputComponent implements OnInit, AfterViewInit {
     comment.user = LocalStore.getCurrenUser();
     this._commentService.create(this.feedbackId, comment)
       .subscribe(newComment => {
+        this._appMsgService.sendNewCommentReceive(newComment);
         this.text = '';
       }, error => {
         console.log(error);
