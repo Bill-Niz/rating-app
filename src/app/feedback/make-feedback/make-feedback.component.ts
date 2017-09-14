@@ -3,6 +3,7 @@ import { FeedbackService} from '../../services/feedback.service';
 import { Feedback} from '../Models';
 import { LocalStore } from '../../LocalStore';
 import { IPopup } from 'ng2-semantic-ui';
+
 @Component({
   selector: 'app-make-feedback',
   templateUrl: './make-feedback.component.html',
@@ -16,11 +17,11 @@ export class MakeFeedbackComponent implements OnInit {
   rating = 0;
   note: string;
 
+
   constructor(private _feedbackService: FeedbackService) { }
 
   ngOnInit() {
   }
-
 
   public openPopup(popup: IPopup) {
     this.popUp = popup;
@@ -42,7 +43,4 @@ export class MakeFeedbackComponent implements OnInit {
       });
 
   }
-
-
-
 }

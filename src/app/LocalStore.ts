@@ -4,6 +4,7 @@ export class LocalStore {
 
   static storeUser(user: User) {
     console.log(user);
+    localStorage.setItem('str-id', user._id);
     localStorage.setItem('str-name', user.name);
     localStorage.setItem('str-token', user.token.token);
     localStorage.setItem('str-token-expires', user.token.expires);
@@ -14,6 +15,7 @@ export class LocalStore {
     const user = new User();
     user.name = localStorage.getItem('str-name');
     user.avatar = localStorage.getItem('str-avatar');
+    user._id = localStorage.getItem('str-id');
 
     if (!!user.name) {
       return user;

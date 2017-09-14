@@ -1,16 +1,15 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img [src]="feedback?.user.avatar" width="40px">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+        <strong>{{feedback?.user.name}}</strong> <small>   · {{timeAgo(feedback?.date)}} </small>
+          <div class="rating"><sui-rating [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></div>
+        {{feedback?.note}}
 
-<div class="comment">
-  <a class="avatar">
-    <img [src]="feedback?.user.avatar">
-  </a>
-  <div class="content">
-    <span class="author">{{feedback?.user.name}}</span>
-    <div class="metadata">
-      <div class="date">{{timeAgo(feedback?.date)}}</div>
-    </div>
-    <div class="rating"><sui-rating  [maximum]="5" [isReadonly]="true"></sui-rating></div>
-    <div class="text">
-      {{feedback?.note}}
     </div>
   </div>
-</div>
+</article>

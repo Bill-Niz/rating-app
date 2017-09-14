@@ -5,7 +5,7 @@ import {trigger, transition, style, animate} from '@angular/animations';
 import { AppMessageService} from '../../services/messaging/app-message.service';
 import { CommentService} from '../../services/comment.service';
 import { Comment } from '../../comment/Models';
-import {LocalStore} from "../../LocalStore";
+import {LocalStore} from '../../LocalStore';
 
 @Component({
   selector: 'app-feedback',

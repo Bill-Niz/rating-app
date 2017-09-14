@@ -9,6 +9,7 @@ import { ApplicationService } from '../../services/application.service';
 import { Application } from '../Models';
 import {Feedback} from '../../feedback/Models';
 import {AppMessageService} from '../../services/messaging/app-message.service';
+import {LocalStore} from "../../LocalStore";
 
 @Component({
   selector: 'app-application-details',
@@ -30,6 +31,19 @@ export class ApplicationDetailsComponent implements OnInit {
         this.application = app as Application;
         this.feedbacks = this.application.feedbacks;
         this._appMsgService.sendFeedBackReceive(this.feedbacks);
+      });
+
+    this._appMsgService.getFullFeedbacks()
+      .subscribe( feedbacks => {
+        const currUser = LocalStore.getCurrenUser();
+        console.log(feedbacks);
+        if (!!currUser) {
+          const myfeed = feedbacks.feedbacks.filter((feedback) => { return feedback.user._id === currUser._id });
+          if(myfeed.length > 0) { this.myFeedback = myfeed[0]; }
+        }
+
+      }, error => {
+        console.log(error);
       });
   }
 

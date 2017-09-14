@@ -8,6 +8,7 @@ import { Comment } from '../../comment/Models';
 export class AppMessageService {
   private _feedBackReceived = new Subject<any>();
   private _commentReceived = new Subject<any>();
+  private _fullFeedBackReceived = new Subject<any>();
 
   constructor() { }
 
@@ -15,8 +16,17 @@ export class AppMessageService {
     this._feedBackReceived.next({ feedbacks:  feedbacks });
   }
 
-  getMessage(): Observable<any> {
+  getFeedbacks(): Observable<any> {
     return this._feedBackReceived.asObservable();
+  }
+
+
+  sendFullFeedBackReceive(feedbacks: Feedback[]) {
+    this._fullFeedBackReceived.next({ feedbacks:  feedbacks });
+  }
+
+  getFullFeedbacks(): Observable<any> {
+    return this._fullFeedBackReceived.asObservable();
   }
 
   sendCommentReceive(comments: Comment[]) {
