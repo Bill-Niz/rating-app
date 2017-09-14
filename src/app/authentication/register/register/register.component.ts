@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
@@ -12,8 +12,10 @@ import {Location} from '@angular/common';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('input')
+  private _inputElement: ElementRef;
   alreadyExist = false;
   registerForm: FormGroup;
   user: User;
@@ -27,6 +29,10 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.maxLength(100), Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(250)]]
     });
+  }
+
+  ngAfterViewInit() {
+    this._inputElement.nativeElement.focus();
   }
 
   submit() {

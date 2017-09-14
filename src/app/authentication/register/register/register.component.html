@@ -8,6 +8,7 @@
         <label class="label">Username*</label>
         <p class="control">
           <input
+            #input
             class="input"
             [class.is-danger]="registerForm.get('name').invalid &&
             registerForm.get('name').dirty"

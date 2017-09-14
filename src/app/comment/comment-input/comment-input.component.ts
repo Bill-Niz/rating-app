@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {LocalStore} from '../../LocalStore';
 import { CommentService} from '../../services/comment.service';
 import { Comment} from '../Models';
@@ -8,15 +8,21 @@ import { Comment} from '../Models';
   templateUrl: './comment-input.component.html',
   styleUrls: ['./comment-input.component.css']
 })
-export class CommentInputComponent implements OnInit {
+export class CommentInputComponent implements OnInit, AfterViewInit {
 
   @Input()
   feedbackId: string;
+  @ViewChild('input')
+  private _inputElement: ElementRef;
   text: string;
 
   constructor(private _commentService: CommentService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this._inputElement.nativeElement.focus();
   }
 
 
