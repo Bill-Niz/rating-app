@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule} from '@angular/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ScrollToModule } from 'ng2-scroll-to-el';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -57,7 +58,8 @@ import { LoginModalComponent } from './authentication/login-modal/login-modal.co
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollToModule.forRoot()
   ],
   providers: [ApplicationService, UserService, FeedbackService, CommentService,AppMessageService],
   bootstrap: [AppComponent]

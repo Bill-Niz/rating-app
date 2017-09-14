@@ -37,18 +37,20 @@ export class MakeFeedbackComponent implements OnInit {
 
   sendFeedback() {
 
-    const feedback = new Feedback();
-    feedback.date = new Date();
-    feedback.rating = this.rating;
-    if (this.note) { feedback.note = this.note; }
-    feedback.user = LocalStore.getCurrenUser();
-    this._feedbackService.create(this.appId, feedback)
-      .subscribe(newFeedback => {
-        this._appMsgService.sendNewFeedBackReceive(newFeedback);
-        this.popUp.close();
-      }, error => {
-        console.log(error);
-      });
+    if (this.rating > 0) {
+      const feedback = new Feedback();
+      feedback.date = new Date();
+      feedback.rating = this.rating;
+      if (this.note) { feedback.note = this.note; }
+      feedback.user = LocalStore.getCurrenUser();
+      this._feedbackService.create(this.appId, feedback)
+        .subscribe(newFeedback => {
+          this._appMsgService.sendNewFeedBackReceive(newFeedback);
+          this.popUp.close();
+        }, error => {
+          console.log(error);
+        });
+    }
 
   }
 }

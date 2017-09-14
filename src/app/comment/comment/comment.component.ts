@@ -16,6 +16,7 @@ export class CommentComponent implements OnInit {
   @Input()
   comment: Comment;
   noted: Notation;
+  showed = true;
 
   constructor(private _commentService: CommentService, private _router: Router) {
 
@@ -23,13 +24,19 @@ export class CommentComponent implements OnInit {
 
   ngOnInit() {
     const currUser = LocalStore.getCurrenUser();
-    console.log(this.comment);
+
+    if (!!currUser) { this.showed = !(this.comment.user._id === currUser._id);
+    }else {
+      this.showed = true;
+    }
+
     if (!!currUser && !!this.comment.notations) {
-      console.log(this.comment);
+
       const myNote = this.comment.notations.filter((note) => {
-        return note.user._id = currUser._id;
+        return note.user._id === currUser._id;
       });
-      if (myNote.length > 0) { this.noted = myNote[0] as Notation; }
+      console.log(myNote);
+      if (myNote.length > 0) { this.noted = myNote[0] as Notation; this.showed = false; }
     }else {
       this.noted = null;
     }
@@ -45,6 +52,7 @@ export class CommentComponent implements OnInit {
       this._commentService.addNote(this.comment._id, note, user)
         .subscribe(response => {
           this.comment.notation += note;
+          this.showed = false;
         }, error => {
           console.log(error);
         });

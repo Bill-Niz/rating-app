@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { Feedback } from '../Models';
 import * as moment from 'moment';
 import {trigger, transition, style, animate} from '@angular/animations';
@@ -7,6 +7,7 @@ import { CommentService} from '../../services/comment.service';
 import { Comment } from '../../comment/Models';
 import {LocalStore} from '../../LocalStore';
 import {Router} from '@angular/router';
+import { ScrollToService } from 'ng2-scroll-to-el';
 
 @Component({
   selector: 'app-feedback',
@@ -27,11 +28,13 @@ export class FeedbackComponent implements OnInit {
 
   @Input()
   feedback: Feedback;
+  @ViewChild('inputTo')
+  private _inputElement: ElementRef;
   state = false;
   showInput = false;
   comments = [];
 
-  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router) {
+  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router, private _scrollService: ScrollToService) {
 
     this._appMsgService.getNewComment()
       .subscribe(newComment => {
@@ -49,17 +52,21 @@ export class FeedbackComponent implements OnInit {
   pushNewComment (comment: Comment) {
     console.log(comment);
     this.feedback.comments.push(comment);
-    this.fetchComments(!this.state);
-
   }
 
   fetchComments(toogle: boolean) {
-    if(toogle) { this.toggle() };
+    if (toogle) { this.toggle(); }
     if (this.state) {
       this._commentService.get(this.feedback.comments)
         .subscribe( comments => {
           this._appMsgService.sendCommentReceive(comments);
           this.comments = comments;
+
+
+          setTimeout(() => {
+            const el: HTMLElement = this._inputElement.nativeElement;
+            this._scrollService.scrollTo(el); console.log(el);
+            }, 500);
         }, error => {
           console.log(error);
         });
