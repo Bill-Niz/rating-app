@@ -52,6 +52,7 @@ export class FeedbackComponent implements OnInit {
   pushNewComment (comment: Comment) {
     console.log(comment);
     this.feedback.comments.push(comment);
+    this.fetchComments(false);
   }
 
   fetchComments(toogle: boolean) {
