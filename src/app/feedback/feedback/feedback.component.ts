@@ -31,7 +31,6 @@ export class FeedbackComponent implements OnInit {
   @ViewChild('inputTo')
   private _inputElement: ElementRef;
   state = false;
-  showInput = false;
   comments = [];
 
   constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router, private _scrollService: ScrollToService) {
@@ -50,9 +49,11 @@ export class FeedbackComponent implements OnInit {
   }
 
   pushNewComment (comment: Comment) {
-    console.log(comment);
-    this.feedback.comments.push(comment);
-    this.fetchComments(false);
+
+    if (comment.feedbackId === this.feedback._id) {
+      this.feedback.comments.push(comment);
+      this.fetchComments(false);
+    }
   }
 
   fetchComments(toogle: boolean) {

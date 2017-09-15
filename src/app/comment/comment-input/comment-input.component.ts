@@ -34,6 +34,7 @@ export class CommentInputComponent implements OnInit, AfterViewInit {
     comment.user = LocalStore.getCurrenUser();
     this._commentService.create(this.feedbackId, comment)
       .subscribe(newComment => {
+        newComment.feedbackId = this.feedbackId;
         this._appMsgService.sendNewCommentReceive(newComment);
         this.text = '';
       }, error => {

@@ -15,6 +15,7 @@ export class Comment {
   notation: number;
   user: User;
   notations: Notation[];
+  feedbackId: string;
 
   constructor( ) {
   }
