@@ -6,7 +6,7 @@
   </figure>
   <div class="media-content">
     <div class="content">
-        <strong>{{feedback?.user.name}}</strong> <small> · {{timeAgo(feedback?.date)}} </small>
+        <strong>{{feedback?.user.name}}</strong> <small> · {{timeAgo(feedback?.date)}} </small> · <small>{{feedback?.comments?.length}} comments</small>
           <div class="rating"><sui-rating [ngModel]="feedback?feedback.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></div>
         {{feedback?.note}}
     </div>

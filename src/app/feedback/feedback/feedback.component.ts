@@ -87,10 +87,10 @@ export class FeedbackComponent implements OnInit {
     this.state = false;
   }
 
-  toggleInput() {
+  toggleInput(toogle: boolean) {
 
     if (!!LocalStore.getCurrenUser()) {
-      this.showInput ? this.showInput = false : this.showInput = true;
+      this.fetchComments(toogle);
     }else {
       this._router.navigate(['/authentication/login']);
     }

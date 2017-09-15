@@ -16,4 +16,8 @@ export class ApplicationCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  round(rating: number) {
+    return Application.roundedRating(rating);
+  }
+
 }

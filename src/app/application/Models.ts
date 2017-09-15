@@ -15,4 +15,8 @@ export class Application {
     this.rating = rating;
     this.image = image;
   }
+
+   static roundedRating(rating: number) {
+    return  Math.trunc(rating);
+  }
 }

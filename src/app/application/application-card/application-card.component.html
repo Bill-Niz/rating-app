@@ -6,6 +6,6 @@
   </div>
   <div class="card-content">
     <p class="title is-4">{{application.name}}</p>
-    <p class="subtitle is-6"><sui-rating [maximum]="5" [ngModel]="application?application.rating:0" [isReadonly]="true"></sui-rating></p>
+    <p class="subtitle is-6"><sui-rating [maximum]="5" [ngModel]="application?round(application.rating):0" [isReadonly]="true"></sui-rating></p>
   </div>
 </div>

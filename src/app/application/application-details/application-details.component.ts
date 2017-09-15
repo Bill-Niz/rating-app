@@ -72,10 +72,12 @@ export class ApplicationDetailsComponent implements OnInit {
     this.application.rating = feedback.avgRating;
   }
 
-
-
   getApplicationDetails(id: string): Observable<Application> {
     return this._applicationService.getApplication(id);
+  }
+
+  round(rating: number) {
+    return Application.roundedRating(rating);
   }
 
 }

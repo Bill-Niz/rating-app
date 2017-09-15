@@ -20,7 +20,9 @@
             </div>
             <div class="column">
               <p class="title">{{application?.name}}</p>
-              <p class="subtitle "> <sui-rating class="huge r-rating" [ngModel]="application?application.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></p>
+
+              <p class="title">{{application?application.rating:0}}</p>
+              <p class="subtitle "> <sui-rating class="huge r-rating" [ngModel]="application?round(application.rating):0" [maximum]="5" [isReadonly]="true"></sui-rating></p>
 
             </div>
           </div>
