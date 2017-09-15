@@ -2,9 +2,9 @@
   <div class="header">Rating</div>
   <div class="content" popupTrigger="outsideClick">
     <sui-rating  [(ngModel)]="rating" class="star massive"></sui-rating>
-    <input [(ngModel)]="note"  (keyup.enter)="sendFeedback()" class="input" type="text" placeholder="You comment...">
+    <input [(ngModel)]="note"  (keyup.enter)="sendFeedback()" class="input"  placeholder="Your comment...">
     <a class="button is-primary is-small is-outlined" (click)="sendFeedback()"  [attr.disabled]="rating?null:true" >Send</a>
   </div>
 </ng-template>
 
-<span suiPopup #popup="suiPopup" [popupTemplate]="popupTemplate" popupTrigger="manual"> <a class="button is-primary is-outlined" (click)="openPopup(popup)" >Make feedback</a></span>
+<span suiPopup #popup="suiPopup" [popupTemplate]="popupTemplate" popupTrigger="manual"> <a class="button is-primary is-outlined" (click)="openPopup(popup)" >Add feedback</a></span>
