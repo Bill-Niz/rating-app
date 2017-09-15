@@ -6,6 +6,7 @@ export class Feedback {
   note?: string;
   date: Date;
   rating: number;
+  avgRating: number;
   user: User;
   comments: Comment[] = [];
 

@@ -21,6 +21,7 @@ export class ApplicationDetailsComponent implements OnInit {
   application: Application;
   myFeedback?: Feedback;
   feedbacks: Feedback[];
+  show = false;
 
   constructor(private _route: ActivatedRoute, private _applicationService: ApplicationService, private _appMsgService: AppMessageService) { }
 
@@ -39,7 +40,16 @@ export class ApplicationDetailsComponent implements OnInit {
 
         if (!!currUser) {
           const myfeed = feedbacks.feedbacks.filter((feedback) => { return feedback.user._id === currUser._id });
-          if (myfeed.length > 0) { this.myFeedback = myfeed[0]; }
+          if (myfeed.length > 0) {
+            this.myFeedback = myfeed[0];
+            console.log('ii');
+            this.show = false;
+          }else {
+            this.show = true;
+            console.log(this.show);
+          }
+        }else {
+          this.show = true;
         }
 
       }, error => {
@@ -53,7 +63,9 @@ export class ApplicationDetailsComponent implements OnInit {
   }
 
   pushNewFeedback (feedback: Feedback) {
+    this.show = false;
     this.myFeedback = feedback;
+    this.application.rating = feedback.avgRating;
   }
 
 
