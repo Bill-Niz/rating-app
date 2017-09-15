@@ -37,7 +37,7 @@ export class FeedbackListComponent implements OnInit, OnDestroy {
   }
 
   pushNewFeedback(feedback: Feedback) {
-    this.feedbacks.push(feedback);
+    this.feedbacks.unshift(feedback);
   }
 
   ngOnInit() {
