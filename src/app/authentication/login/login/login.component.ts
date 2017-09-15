@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   navigateToHome() {
-    this._location.back();
+    this._router.navigate(['/']);;
   }
 
 
