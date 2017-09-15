@@ -4,7 +4,13 @@
       <div class="title">Applications</div>
     </div>
   </div>
+  <nav *ngIf="loading" class="level">
+    <div class="level-item has-text-centered is-loading">
+    <div class="ui active inline loader"></div>
+    </div>
+  </nav>
   <div class="columns is-multiline">
+
     <div class="column is-3"
          *ngFor="let application of applicatations">
       <a [routerLink]="['/application/', application._id]">

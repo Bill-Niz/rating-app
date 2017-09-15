@@ -30,6 +30,7 @@ import {CommentService} from './services/comment.service';
 import {AppMessageService} from './services/messaging/app-message.service';
 import { CommentInputComponent } from './comment/comment-input/comment-input.component';
 import { LoginModalComponent } from './authentication/login-modal/login-modal.component';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { LoginModalComponent } from './authentication/login-modal/login-modal.co
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    SlimLoadingBarModule,
     ScrollToModule.forRoot()
   ],
   providers: [ApplicationService, UserService, FeedbackService, CommentService,AppMessageService],

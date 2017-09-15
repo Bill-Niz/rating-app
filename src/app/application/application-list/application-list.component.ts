@@ -10,10 +10,12 @@ import { ApplicationService } from '../../services/application.service';
 export class ApplicationListComponent implements OnInit {
 
   applicatations: Application[];
+  loading = true;
 
   constructor(private _applicatonList: ApplicationService) {
     this._applicatonList.getApplications().subscribe( data => {
       this.applicatations = data;
+      this.loading = false;
     });
   }
 
