@@ -1,5 +1,6 @@
 
-<div class="section">
+<div class="container section">
+
   <div class="tile is-ancestor section">
 
   <div class="tile is-parent ">
@@ -7,48 +8,64 @@
 
   <div class="tile is-vertical is-8">
     <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-primary">
-          <figure class="image is-128x128">
-            <img [src]="application?.image " >
-          </figure>
-          <p class="title">{{application?.name}}</p>
-          <p class="subtitle r-rating"> <sui-rating class="huge" [ngModel]="application?application.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></p>
-          <div class="content">
+      <div class="tile is-parent is-vertical ">
+
+
+
+
+
+
+        <div class="tile is-child box">
+          <div class="columns">
+            <div class="column is-narrow">
+              <figure class="image is-128x128">
+                <img [src]="application?.image" >
+              </figure>
+            </div>
+            <div class="column">
+              <p class="title">{{application?.name}}</p>
+              <p class="subtitle "> <sui-rating class="huge r-rating" [ngModel]="application?application.rating:0" [maximum]="5" [isReadonly]="true"></sui-rating></p>
+
+            </div>
+          </div>
+
+
+           <div class="content">
             {{application?.description}}
           </div>
-        </article>
+        </div>
+
+
+        <div class="tile is-child notification is-light box">
+          <div class="content">
+            <p  *ngIf="myFeedback" class="subtitle is-4">My feedback</p>
+            <div class="content">
+
+              <div *ngIf="myFeedback">
+                <app-my-feedback [feedback]="myFeedback"></app-my-feedback>
+              </div>
+
+              <div  *ngIf="!myFeedback" class="is-pulled-right">
+                <app-make-feedback [appId]="application?._id"></app-make-feedback>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tile is-child notification box">
+          <p class="title">Feedbacks</p>
+
+          <div class="content">
+            <app-feedback-list></app-feedback-list>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="tile is-parent">
-      <article class="tile is-child notification is-light">
-        <div class="content">
-          <p  *ngIf="myFeedback" class="subtitle is-4">My feedback</p>
-          <div class="content">
 
-            <div *ngIf="myFeedback">
-              <app-my-feedback [feedback]="myFeedback"></app-my-feedback>
-            </div>
-
-            <div  *ngIf="!myFeedback" class="is-pulled-right">
-              <app-make-feedback [appId]="application?._id"></app-make-feedback>
-            </div>
-
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="tile is-parent">
-      <article class="tile is-child notification">
-        <p class="title">Feedbacks</p>
-
-        <div class="content">
-          <app-feedback-list></app-feedback-list>
-        </div>
-      </article>
-    </div>
   </div>
 
 

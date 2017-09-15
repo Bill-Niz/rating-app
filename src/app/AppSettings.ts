@@ -1,3 +1,3 @@
 export class AppSettings {
-  public static API_ENDPOINT= 'https://rating-serve.herokuapp.com/api/v1';
+  public static API_ENDPOINT= 'http://localhost:3000/api/v1';
 }

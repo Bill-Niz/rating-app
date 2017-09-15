@@ -1,0 +1,12 @@
+.card {
+  margin: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-backface-visibility: hidden;
+}
+
+.card:hover{
+  -webkit-transform: scale(1.25, 1.25);
+  transform: scale(1.04, 1.04);
+}

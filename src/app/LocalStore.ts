@@ -3,7 +3,6 @@ import {Token, User} from './authentication/Models';
 export class LocalStore {
 
   static storeUser(user: User) {
-    console.log(user);
     localStorage.setItem('str-id', user._id);
     localStorage.setItem('str-name', user.name);
     localStorage.setItem('str-token', user.token.token);

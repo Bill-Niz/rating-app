@@ -3,7 +3,7 @@
   <div class="content" popupTrigger="outsideClick">
     <sui-rating  [(ngModel)]="rating" class="star massive"></sui-rating>
     <input [(ngModel)]="note"  (keyup.enter)="sendFeedback()" class="input" type="text" placeholder="You comment...">
-    <a class="button is-primary is-outlined" (click)="sendFeedback()"  [attr.disabled]="rating?null:true" >Send</a>
+    <a class="button is-primary is-small is-outlined" (click)="sendFeedback()"  [attr.disabled]="rating?null:true" >Send</a>
   </div>
 </ng-template>
 
