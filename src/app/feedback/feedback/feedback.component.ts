@@ -62,11 +62,9 @@ export class FeedbackComponent implements OnInit {
         .subscribe( comments => {
           this._appMsgService.sendCommentReceive(comments);
           this.comments = comments;
-
-
           setTimeout(() => {
             const el: HTMLElement = this._inputElement.nativeElement;
-            this._scrollService.scrollTo(el); console.log(el);
+            this._scrollService.scrollTo(el);
             }, 500);
         }, error => {
           console.log(error);
