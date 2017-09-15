@@ -12,6 +12,7 @@
         <ng2-slim-loading-bar [color]="'#00d1b2'" ></ng2-slim-loading-bar>
 
         <div class="tile is-child box">
+          <div *ngIf="application">
           <div class="columns">
             <div class="column is-narrow">
               <figure class="image is-128x128">
@@ -29,6 +30,7 @@
            <div class="content">
             {{application?.description}}
           </div>
+        </div>
         </div>
 
         <div class="tile is-child notification is-light box">
