@@ -13,7 +13,7 @@
 
       <div class="actions">
         <a class="reply" (click)="toggleInput(true)">Reply</a>
-        <a (click)="fetchComments(true)">{{feedback?.comments?.length}} comments</a>
+        <a (click)="fetchComments(true)">{{feedback?.comments?.length}} comment(s)</a>
       </div>
       <div *ngIf="state">
         <app-comment-list [comments]="comments"></app-comment-list>

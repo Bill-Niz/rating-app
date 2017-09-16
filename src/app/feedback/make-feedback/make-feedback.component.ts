@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { FeedbackService} from '../../services/feedback.service';
 import { Feedback} from '../Models';
 import { LocalStore } from '../../LocalStore';
@@ -15,9 +15,11 @@ export class MakeFeedbackComponent implements OnInit {
 
   @Input()
   appId: string;
-  popUp: IPopup;
+  @ViewChild('popup')
+  private popUp: IPopup;
   rating = 0;
   note: string;
+
 
 
   constructor(private _feedbackService: FeedbackService, private _router: Router, private _appMsgService: AppMessageService) { }
@@ -27,10 +29,7 @@ export class MakeFeedbackComponent implements OnInit {
 
   public openPopup(popup: IPopup) {
 
-    if (!!LocalStore.getCurrenUser()) {
-      this.popUp = popup;
-      popup.toggle();
-    }else {
+    if (!LocalStore.getCurrenUser()) {
       this._router.navigate(['/authentication/login']);
     }
   }

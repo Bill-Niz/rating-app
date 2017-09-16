@@ -52,7 +52,6 @@ export class ApplicationDetailsComponent implements OnInit {
             this.show = false;
           }else {
             this.show = true;
-            console.log(this.show);
           }
         }else {
           this.show = true;
