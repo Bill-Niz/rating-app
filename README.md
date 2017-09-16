@@ -1,6 +1,7 @@
-# RatingApp
+# Rating App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.1.
+* Client : https://bill-niz.github.io/rating-app/
+* Server api :  https://rating-serve.herokuapp.com/
 
 ## Development server
 
