@@ -5,13 +5,16 @@
     </a>
   </div>
 
-  <span class="nav-toggle">
+  <span class="nav-toggle" for="nav-toggle-state" (click)="toggle(navMenu)">
       <span></span>
       <span></span>
       <span></span>
     </span>
 
-  <div class="nav-right nav-menu">
+  <!-- This checkbox is hidden -->
+  <input type="checkbox" id="nav-toggle-state" />
+
+  <div class="nav-right nav-menu" #navMenu>
     <div class="nav-item" *ngIf="!isAuthenticated()">
       <div class="field is-grouped">
         <p class="control">

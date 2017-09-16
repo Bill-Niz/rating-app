@@ -29,4 +29,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  toggle(el) {
+    console.log(el);
+    const nav = el;
+    const className = nav.getAttribute('class');
+    if (className === 'nav-right nav-menu') {
+      nav.className = 'nav-right nav-menu is-active';
+    } else {
+      nav.className = 'nav-right nav-menu';
+    }
+  }
+
 }
