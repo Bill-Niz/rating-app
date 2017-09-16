@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   error = false;
   registerForm: FormGroup;
   user: User;
-  constructor(private _fb: FormBuilder, private _router: Router, private _userService: UserService,private _location: Location) { }
+  constructor(private _fb: FormBuilder, private _router: Router, private _userService: UserService, private _location: Location) { }
 
   ngOnInit() {
     this.registerForm = this._fb.group({
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   navigateToHome() {
-    this._router.navigate(['/']);;
+    this._router.navigate(['/']);
   }
 
 

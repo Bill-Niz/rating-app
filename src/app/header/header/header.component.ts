@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {LocalStore} from "../../LocalStore";
+import {Router} from '@angular/router';
+import {LocalStore} from '../../LocalStore';
 
 @Component({
   selector: 'app-header',

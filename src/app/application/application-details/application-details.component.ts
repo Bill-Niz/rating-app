@@ -24,7 +24,10 @@ export class ApplicationDetailsComponent implements OnInit {
   feedbacks: Feedback[];
   show = false;
 
-  constructor(private _route: ActivatedRoute, private _applicationService: ApplicationService, private _appMsgService: AppMessageService, private slimLoadingBarService: SlimLoadingBarService) { }
+  constructor(private _route: ActivatedRoute,
+              private _applicationService: ApplicationService,
+              private _appMsgService: AppMessageService,
+              private slimLoadingBarService: SlimLoadingBarService) { }
 
   ngOnInit() {
 
@@ -43,10 +46,9 @@ export class ApplicationDetailsComponent implements OnInit {
         const currUser = LocalStore.getCurrenUser();
 
         if (!!currUser) {
-          const myfeed = feedbacks.feedbacks.filter((feedback) => { return feedback.user._id === currUser._id });
+          const myfeed = feedbacks.feedbacks.filter((feedback) =>  feedback.user._id === currUser._id );
           if (myfeed.length > 0) {
             this.myFeedback = myfeed[0];
-            console.log('ii');
             this.show = false;
           }else {
             this.show = true;

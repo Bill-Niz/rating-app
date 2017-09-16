@@ -63,7 +63,7 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
     SlimLoadingBarModule,
     ScrollToModule.forRoot()
   ],
-  providers: [ApplicationService, UserService, FeedbackService, CommentService,AppMessageService],
+  providers: [ApplicationService, UserService, FeedbackService, CommentService, AppMessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

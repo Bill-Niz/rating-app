@@ -33,7 +33,10 @@ export class FeedbackComponent implements OnInit {
   state = false;
   comments = [];
 
-  constructor(private _appMsgService: AppMessageService, private _commentService: CommentService, private _router: Router, private _scrollService: ScrollToService) {
+  constructor(private _appMsgService: AppMessageService,
+              private _commentService: CommentService,
+              private _router: Router,
+              private _scrollService: ScrollToService) {
 
     this._appMsgService.getNewComment()
       .subscribe(newComment => {

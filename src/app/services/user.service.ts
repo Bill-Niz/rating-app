@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 import { AppSettings } from '../AppSettings';
 import 'rxjs/add/observable/of';
 import {User} from '../authentication/Models';
-import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class UserService {

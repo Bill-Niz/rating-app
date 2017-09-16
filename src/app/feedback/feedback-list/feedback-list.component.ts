@@ -21,7 +21,7 @@ export class FeedbackListComponent implements OnInit, OnDestroy {
       .subscribe( feedbacks => {
        this.feedbacks = feedbacks as Feedback[];
        this._appMsgService.sendFullFeedBackReceive(this.feedbacks);
-      } ,error => {
+      } , error => {
         console.log(error);
     });
 
