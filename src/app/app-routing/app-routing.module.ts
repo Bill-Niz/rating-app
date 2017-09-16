@@ -5,6 +5,7 @@ import {ApplicationListComponent} from '../application/application-list/applicat
 import { ApplicationDetailsComponent } from '../application/application-details/application-details.component';
 import {RegisterComponent} from '../authentication/register/register/register.component';
 import {LoginComponent} from '../authentication/login/login/login.component';
+import {NotFoundComponent} from '../error/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,8 @@ const routes: Routes = [
         }
       ]
   },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404',  pathMatch: 'full'},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

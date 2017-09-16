@@ -1,6 +1,4 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Location} from '@angular/common';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
@@ -20,7 +18,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   error = false;
   registerForm: FormGroup;
   user: User;
-  constructor(private _fb: FormBuilder, private _router: Router, private _userService: UserService, private _location: Location) { }
+  constructor(private _fb: FormBuilder,
+              private _router: Router,
+              private _userService: UserService) { }
 
   ngOnInit() {
     this.registerForm = this._fb.group({

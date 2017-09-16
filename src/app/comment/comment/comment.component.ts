@@ -32,10 +32,7 @@ export class CommentComponent implements OnInit {
 
     if (!!currUser && !!this.comment.notations) {
 
-      const myNote = this.comment.notations.filter((note) => {
-        return note.user._id === currUser._id;
-      });
-      console.log(myNote);
+      const myNote = this.comment.notations.filter((note) =>  note.user._id === currUser._id);
       if (myNote.length > 0) { this.noted = myNote[0] as Notation; this.showed = false; }
     }else {
       this.noted = null;

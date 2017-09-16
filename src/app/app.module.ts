@@ -31,6 +31,7 @@ import {AppMessageService} from './services/messaging/app-message.service';
 import { CommentInputComponent } from './comment/comment-input/comment-input.component';
 import { LoginModalComponent } from './authentication/login-modal/login-modal.component';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import { NotFoundComponent } from './error/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
     LoginComponent,
     RegisterComponent,
     CommentInputComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

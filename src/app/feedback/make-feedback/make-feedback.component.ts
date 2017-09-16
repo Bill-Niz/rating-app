@@ -2,9 +2,10 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { FeedbackService} from '../../services/feedback.service';
 import { Feedback} from '../Models';
 import { LocalStore } from '../../LocalStore';
-import { IPopup } from 'ng2-semantic-ui';
+import { IPopup } from './IPopup';
 import { Router } from '@angular/router';
 import {AppMessageService} from '../../services/messaging/app-message.service';
+
 
 @Component({
   selector: 'app-make-feedback',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/empty';
@@ -27,7 +27,8 @@ export class ApplicationDetailsComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
               private _applicationService: ApplicationService,
               private _appMsgService: AppMessageService,
-              private slimLoadingBarService: SlimLoadingBarService) { }
+              private slimLoadingBarService: SlimLoadingBarService,
+              private _router: Router) { }
 
   ngOnInit() {
 
@@ -35,10 +36,13 @@ export class ApplicationDetailsComponent implements OnInit {
     this._route.params.map(p => p.id)
     .switchMap(this.getApplicationDetails.bind(this))
       .subscribe( app => {
+
         this.application = app as Application;
         this.feedbacks = this.application.feedbacks;
         this._appMsgService.sendFeedBackReceive(this.feedbacks);
         this.slimLoadingBarService.complete();
+      }, error => {
+        this._router.navigate(['/404']);
       });
 
     this._appMsgService.getFullFeedbacks()
