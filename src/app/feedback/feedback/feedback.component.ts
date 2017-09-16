@@ -66,10 +66,12 @@ export class FeedbackComponent implements OnInit {
         .subscribe( comments => {
           this._appMsgService.sendCommentReceive(comments);
           this.comments = comments;
-          setTimeout(() => {
-            const el: HTMLElement = this._inputElement.nativeElement;
-            this._scrollService.scrollTo(el);
+          if (this.isLogged()) {
+            setTimeout(() => {
+              const el: HTMLElement = this._inputElement.nativeElement;
+              this._scrollService.scrollTo(el);
             }, 500);
+          }
         }, error => {
           console.log(error);
         });
@@ -83,17 +85,12 @@ export class FeedbackComponent implements OnInit {
     this.state ? this.state = false : this.state = true;
   }
 
-  open() {
-    this.state = true;
+  isLogged() {
+    return !!LocalStore.getCurrenUser();
   }
-
-  close() {
-    this.state = false;
-  }
-
   toggleInput(toogle: boolean) {
 
-    if (!!LocalStore.getCurrenUser()) {
+    if (this.isLogged()) {
       this.fetchComments(toogle);
     }else {
       this._router.navigate(['/authentication/login']);

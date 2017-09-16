@@ -19,7 +19,7 @@
         <app-comment-list [comments]="comments"></app-comment-list>
       </div>
 
-      <div #inputTo class="actions" style="padding-top: 15px" *ngIf="state">
+      <div #inputTo class="actions" style="padding-top: 15px" *ngIf="state&&isLogged()">
         <app-comment-input [feedbackId]="feedback._id"></app-comment-input>
       </div>
 
