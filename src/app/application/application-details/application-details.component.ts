@@ -36,11 +36,15 @@ export class ApplicationDetailsComponent implements OnInit {
     this._route.params.map(p => p.id)
     .switchMap(this.getApplicationDetails.bind(this))
       .subscribe( app => {
+        if (!!app) {
+          this.application = app as Application;
+          this.feedbacks = this.application.feedbacks;
+          this._appMsgService.sendFeedBackReceive(this.feedbacks);
+          this.slimLoadingBarService.complete();
+        }else {
+          this._router.navigate(['/404']);
+        }
 
-        this.application = app as Application;
-        this.feedbacks = this.application.feedbacks;
-        this._appMsgService.sendFeedBackReceive(this.feedbacks);
-        this.slimLoadingBarService.complete();
       }, error => {
         this._router.navigate(['/404']);
       });
